@@ -1,0 +1,23 @@
+PODS:
+  - FBSnapshotTestCase (2.1.2):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.2)
+  - FBSnapshotTestCase/Core (2.1.2)
+  - FBSnapshotTestCase/SwiftSupport (2.1.2):
+    - FBSnapshotTestCase/Core
+  - VMMediaPlayerLib (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - VMMediaPlayerLib (from `../`)
+
+EXTERNAL SOURCES:
+  VMMediaPlayerLib:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 918c55861356ee83aee7843d759f55a18ff6982b
+  VMMediaPlayerLib: 6be8dd6ecb621f0f8c5be0116f686458cbb079ac
+
+PODFILE CHECKSUM: 05bd22a4bdc3b7b994ed1e0fd126c7e5312ade57
+
+COCOAPODS: 1.0.1
