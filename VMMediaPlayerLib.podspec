@@ -28,10 +28,12 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/VMMediaPlayerLib.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '7.0'
 
-  s.source_files = 'VMMediaPlayerLib/Classes/**/*'
-  
+  s.source_files = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/*'
+  s.exclude_files = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijksdl_aout_ios_audiounit.m', 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijksdl_vout_ios_gles2.m', 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijkplayer_ios.m'
+    s.requires_arc = true
+    s.dependcy = 
   # s.resource_bundles = {
   #   'VMMediaPlayerLib' => ['VMMediaPlayerLib/Assets/*.png']
   # }
@@ -39,4 +41,15 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+
+    s.subspec 'Ijkplayer' do |ijkplayer|
+    #ijkplayer.preserve_paths = 'VMOpensslLowPodV/Classes/libraries/openssl-1.0.1e/include/openssl/*.h', 'VMOpensslLowPodV/Classes/libraries/openssl-1.0.1e/include/LICENSE'
+    ijkplayer.vendored_libraries = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/ffmpeg/*.a'
+    ijkplayer.source_files = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijksdl_aout_ios_audiounit.m', 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijksdl_vout_ios_gles2.m', 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijkplayer_ios.m'
+    ijkplayer.requires_arc = false
+    ijkplayer.libraries = 'avcodec', 'avfilter', 'avformat', 'avutil', 'swresample', 'swscale'
+    ijkplayer.xcconfig = { 'USER_HEADER_SEARCH_PATHS' => '"/Users/chengqihan/Desktop/VMMediaPlayerLib/VMMediaPlayerLib/Classes/ffmpegBuild/universal/include/**" "/Users/chengqihan/Desktop/VMMediaPlayerLib/VMMediaPlayerLib/Classes/IJKMediaPlayer/ijkmedia/**" "/Users/chengqihan/Desktop/VMMediaPlayerLib/VMMediaPlayerLib/Classes/sourceijkmedia/**"' }
+
+#ijkplayer.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/../../VMMediaPlayerLib/Classes/sourceijkmedia/**" "${PODS_ROOT}/../../VMMediaPlayerLib/Classes/IJKMediaPlayer/ijkmedia/**" "${PODS_ROOT}/../../VMMediaPlayerLib/Classes/ffmpegBuild/universal/include/**"' }
+    end
 end

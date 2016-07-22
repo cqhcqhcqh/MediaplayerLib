@@ -27,6 +27,7 @@
 		96FC735B14BCFE2671BCC9C185D26FDB /* Pods-VMMediaPlayerLib_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBE50219537400938908D497B451795 /* Pods-VMMediaPlayerLib_Example-dummy.m */; };
 		9FA3B93CE0ECAC3CDC30890659AACF82 /* FBSnapshotTestCasePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E3DB4D092B985E76E227F7F313C6981 /* FBSnapshotTestCasePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A932B89F114B02D24B5FBF362FD0B9F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1B0A45F864B16BBE8E470C07F8F740 /* Foundation.framework */; };
+		AF0B701C1D41B358006BA423 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AF0B701B1D41B358006BA423 /* libz.tbd */; };
 		AFDF18831D40D97100FA1E81 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFDF17D21D40D97100FA1E81 /* libavcodec.a */; };
 		AFDF18841D40D97100FA1E81 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFDF17D31D40D97100FA1E81 /* libavfilter.a */; };
 		AFDF18851D40D97100FA1E81 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFDF17D41D40D97100FA1E81 /* libavformat.a */; };
@@ -254,6 +255,8 @@
 		8EBE50219537400938908D497B451795 /* Pods-VMMediaPlayerLib_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VMMediaPlayerLib_Example-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9A69AD0237CBECB2ED21B40E60E958C3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		AF0B70191D41B350006BA423 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
+		AF0B701B1D41B358006BA423 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 		AF784876A3DBC1F3785F66919FB91A3F /* Pods-VMMediaPlayerLib_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VMMediaPlayerLib_Tests-resources.sh"; sourceTree = "<group>"; };
 		AFDF17D21D40D97100FA1E81 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
 		AFDF17D31D40D97100FA1E81 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavfilter.a; sourceTree = "<group>"; };
@@ -438,6 +441,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF0B701C1D41B358006BA423 /* libz.tbd in Frameworks */,
 				AFDF18861D40D97100FA1E81 /* libavutil.a in Frameworks */,
 				AFDF18881D40D97100FA1E81 /* libswscale.a in Frameworks */,
 				AFDF18841D40D97100FA1E81 /* libavfilter.a in Frameworks */,
@@ -481,6 +485,8 @@
 		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF0B701B1D41B358006BA423 /* libz.tbd */,
+				AF0B70191D41B350006BA423 /* MediaPlayer.framework */,
 				7AB6481CFE5F8A7F7E7C212E6398EC0C /* iOS */,
 			);
 			name = Frameworks;
@@ -1420,7 +1426,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2EE64B550D0E59A97CCD8481D74ED134 /* VMMediaPlayerLib.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1436,7 +1442,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "${PODS_ROOT}/../../${TARGET_NAME}/Classes/IJKMediaPlayer/ffmpeg";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				MODULEMAP_FILE = "Target Support Files/VMMediaPlayerLib/VMMediaPlayerLib.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = VMMediaPlayerLib;
@@ -1453,7 +1459,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2EE64B550D0E59A97CCD8481D74ED134 /* VMMediaPlayerLib.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1469,7 +1475,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "${PODS_ROOT}/../../${TARGET_NAME}/Classes/IJKMediaPlayer/ffmpeg";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				MODULEMAP_FILE = "Target Support Files/VMMediaPlayerLib/VMMediaPlayerLib.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = VMMediaPlayerLib;
