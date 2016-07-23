@@ -21,7 +21,7 @@
  */
 
 #import "IJKFFOptions.h"
-#include "ijkplayer/ios/ijkplayer_ios.h"
+#include "ijkplayer_ios.h"
 
 @implementation IJKFFOptions {
     NSMutableDictionary *_optionCategories;
