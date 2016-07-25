@@ -33,7 +33,7 @@ s.ios.deployment_target = '7.0'
 #s.source_files = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/*'
 #s.exclude_files = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijksdl_aout_ios_audiounit.m', 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijksdl_vout_ios_gles2.m', 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijkplayer_ios.m'
  s.requires_arc = false
- s.requires_arc = VMMediaPlayerLib/Classes/IJKMediaPlayer/**/*
+ s.requires_arc = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/*'
 #s.ios.library = 'z'
 # s.resource_bundles = {
 #   'VMMediaPlayerLib' => ['VMMediaPlayerLib/Assets/*.png']
@@ -43,13 +43,15 @@ s.ios.deployment_target = '7.0'
 # s.frameworks = 'UIKit', 'MapKit'
 # s.dependency 'AFNetworking', '~> 2.3'
 
-    #ijkplayer.preserve_paths = 'VMOpensslLowPodV/Classes/libraries/openssl-1.0.1e/include/openssl/*.h', 'VMOpensslLowPodV/Classes/libraries/openssl-1.0.1e/include/LICENSE'
     s.vendored_libraries = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/ffmpeg/*.a'
     s.source_files = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/*', 'VMMediaPlayerLib/Classes/ijk_mrc/**/*'
 
-#ijkplayer.exclude_files = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijksdl_aout_ios_audiounit.m', 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijksdl_vout_ios_gles2.m', 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijkplayer_ios.m'
-    ijkplayer.libraries = 'z', 'avcodec', 'avfilter', 'avformat', 'avutil', 'swresample', 'swscale'
+    s.libraries = 'z', 'avcodec', 'avfilter', 'avformat', 'avutil', 'swresample', 'swscale'
     s.xcconfig = { 'USER_HEADER_SEARCH_PATHS' => '"/Users/chengqihan/Desktop/VMMediaPlayerLib/VMMediaPlayerLib/Classes/ffmpegBuild/universal/include/**" "/Users/chengqihan/Desktop/VMMediaPlayerLib/VMMediaPlayerLib/Classes/IJKMediaPlayer/ijkmedia/**" "/Users/chengqihan/Desktop/VMMediaPlayerLib/VMMediaPlayerLib/Classes/sourceijkmedia/**"' }
+
+
+#ijkplayer.exclude_files = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijksdl_aout_ios_audiounit.m', 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijksdl_vout_ios_gles2.m', 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijkplayer_ios.m'
+
 
     #ijkplayer.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/../../VMMediaPlayerLib/Classes/sourceijkmedia/**" "${PODS_ROOT}/../../VMMediaPlayerLib/Classes/IJKMediaPlayer/ijkmedia/**" "${PODS_ROOT}/../../VMMediaPlayerLib/Classes/ffmpegBuild/universal/include/**"' }
 
