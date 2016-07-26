@@ -29,7 +29,7 @@ s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/VMMediaPlay
 # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
 s.ios.deployment_target = '7.0'
-
+s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-read_only_relocs suppress' }
 #s.source_files = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/*'
 #s.exclude_files = 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijksdl_aout_ios_audiounit.m', 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijksdl_vout_ios_gles2.m', 'VMMediaPlayerLib/Classes/IJKMediaPlayer/**/ijkplayer_ios.m'
  s.requires_arc = false
